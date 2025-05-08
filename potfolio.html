@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francis Kiilu's Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1A1A1D;
+            color: #E5E5E5;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Static Background with Code Snippets */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(to right, #1e3c72, #2a5298);
+            z-index: -1;
+            animation: backgroundChange 5s linear infinite;
+        }
+
+        @keyframes backgroundChange {
+            0% { background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(to right, #1e3c72, #2a5298); }
+            50% { background: url('https://www.transparenttextures.com/patterns/wood.png'), linear-gradient(to right, #3a4756, #2a5298); }
+            100% { background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(to right, #1e3c72, #2a5298); }
+        }
+
+        /* Code snippet background animation */
+        .code-background {
+            font-family: 'Courier New', monospace;
+            color: rgba(0, 255, 0, 0.6);
+            font-size: 1.5em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            white-space: pre;
+            overflow: hidden;
+            z-index: -2;
+            animation: scrollCode 15s linear infinite;
+        }
+
+        @keyframes scrollCode {
+            0% { top: 100%; }
+            100% { top: -100%; }
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 50px 30px;
+            background-color: #111;
+            border-bottom: 2px solid #333;
+            animation: fadeIn 1s ease-out;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #FF8C00;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #FF8C00;
+            margin-top: 10px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 50px 30px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeInSection 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInSection {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .intro, .projects, .skills, .contact {
+            margin-top: 50px;
+        }
+
+        .project {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            background-color: #444;
+        }
+
+        .project h3 {
+            font-size: 1.8em;
+            color: #FF8C00;
+            margin-bottom: 10px;
+        }
+
+        .skills, .contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .skill, .contact-item {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .skill h3, .contact-item h3 {
+            color: #FF8C00;
+            margin-bottom: 10px;
+        }
+
+        .skill p, .contact-item p {
+            font-size: 1em;
+            color: #E5E5E5;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: #FF8C00;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Button Style */
+        button {
+            background-color: #FF8C00;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FF6347;
+        }
+
+        /* Contact Form Styles */
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #444;
+            background-color: #333;
+            color: #E5E5E5;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #FF8C00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #FF6347;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #E5E5E5;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 1em;
+            border-top: 2px solid #333;
+        }
+
+        footer .social-icons {
+            margin-top: 20px;
+        }
+
+        footer .social-icons a {
+            color: #FF8C00;
+            margin: 0 15px;
+            font-size: 1.8em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #fff;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Code Snippets and Animation -->
+    <div class="background"></div>
+    <div class="code-background">
+        01101001 01101110 01110100 01100101 01101110 01110011 01101001 01110100<br>
+        public class Portfolio {<br>
+        public static void main(String[] args) {<br>
+        System.out.println("Francis Kiilu's Portfolio");<br>
+        }<br>
+        }<br>
+        // Frontend Developer<br>
+        // AI Enthusiast<br>
+        // Passionate about coding<br>
+        // Creating stunning, responsive websites<br>
+        10101100 01100001 01101100 01110000<br>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Francis Kiilu</h1>
+        <p>Frontend Developer | Computer Science Student | AI Enthusiast</p>
+    </header>
+
+    <!-- About Me Section -->
+    <section class="intro">
+        <h2>About Me</h2>
+        <p>I am a Computer Science student at Kirinyaga University, specializing in frontend development. I enjoy working independently, diving deep into coding, reasoning, and creating responsive websites. My passion for AI drives me to constantly push my skills further. I also love collaborating on side projects and designing modern CVs and business plans for clients.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="project">
+            <h3>Normal Bot</h3>
+            <p>Collaborated with developers to create a WhatsApp bot. It was tested and worked successfully.</p>
+            <button onclick="window.open('https://github.com/francis656/NORMAL-BOT', '_blank')">View Project</button>
+        </div>
+        <div class="project">
+            <h3>Anyway MD V1</h3>
+            <p>A bot built using HTML, CSS, JS, and Python (first version).</p>
+            <button onclick="window.open('https://github.com/francis656/ANYWAY-MD-V1', '_blank')">View Project</button>
+        </div>
+        <div class="project">
+            <h3>Number System Converter</h3>
+            <p>A working number converter app for converting numbers between various systems.</p>
+            <button onclick="window.open('https://github.com/francis656/number-system-converter', '_blank')">View Project</button>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="skill">
+            <h3>Languages</h3>
+            <p>HTML, CSS, JS (Proficient), Python, Java (Intermediate)</p>
+        </div>
+        <div class="skill">
+            <h3>Databases</h3>
+            <p>Firebase, PHP My Admin</p>
+        </div>
+        <div class="skill">
+            <h3>Other Skills</h3>
+            <p>Git, GitHub</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, feel free to reach out via email. I'm open to collaborations, freelance projects, or any exciting opportunities!</p>
+        <form action="https://formspree.io/f/xjkwkppb" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Francis Kiilu. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/francis-kiilu-17b668301" target="_blank">LinkedIn</a>
+            <a href="https://github.com/francis656" target="_blank">GitHub</a>
+            <a href="https://facebook.com/franciskiilu" target="_blank">Facebook</a>
+        </div>
+    </footer>
+
+</body>
+</html>
